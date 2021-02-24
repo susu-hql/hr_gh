@@ -3,6 +3,7 @@
     首页
 
     <!-- 使用动态的 transition name -->
+    <!-- <router-link :to="{ name: 'info', params: { userId: 123 }}">User</router-link> -->
     <transition :name="transitionName">
       <router-view></router-view>
     </transition>
