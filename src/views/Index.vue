@@ -5,7 +5,10 @@
     <!-- 使用动态的 transition name -->
     <!-- <router-link :to="{ name: 'info', params: { userId: 123 }}">User</router-link> -->
     <transition :name="transitionName">
-      <router-view></router-view>
+      <!-- 允许哪些可以被缓存  include=”name,name” -->
+      <keep-alive include="list,info,login">
+        <router-view></router-view>
+      </keep-alive>
     </transition>
 
   </div>
@@ -19,10 +22,12 @@
         transitionName: ''
       }
     },
-    created() {
+    components: {},
+    created() { // 数据已加载，dom未渲染
       this.init()
     },
-    mounted() {},
+    mounted() { // 节点已经挂载到DOM中；
+    },
     computed: {},
     watch: {
       // 监听路由变化 导航完成后获取数据
@@ -60,6 +65,10 @@
         },
       }
     },
+    updated() { // 更新完毕
+    },
+    destroyed() { // 组件销毁
+    }
   }
 
 </script>

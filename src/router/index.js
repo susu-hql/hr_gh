@@ -56,7 +56,7 @@ const router = new Router({
       }
     },
     {
-      path: '/list/info',
+      path: '/list/info/:id', // id代表动态路由，代表值不是固定的
       name: 'info',
       component: Info,
       meta: {
@@ -81,7 +81,8 @@ router.beforeEach((to, from, next) => {
   console.log('beforeEach-to', to)
   console.log('beforeEach-from', from)
   // console.log('beforeEach-next', next)
-  if (to.meta.requiresAuth && !sessionStorage.getItem("token")) {
+  let token = sessionStorage.getItem("token")
+  if (to.meta.requiresAuth && !token) {
     next({
       path: '/login',
       query: { redirect: to.fullPath }
