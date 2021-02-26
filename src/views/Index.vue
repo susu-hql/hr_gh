@@ -1,9 +1,10 @@
 <template>
   <div id="indexBox">
-    首页
+    这是首页
 
-    <!-- 使用动态的 transition name -->
     <!-- <router-link :to="{ name: 'info', params: { userId: 123 }}">User</router-link> -->
+    <router-link to="list">列表</router-link>
+    <!-- 使用动态的 transition name -->
     <transition :name="transitionName">
       <!-- 允许哪些可以被缓存  include=”name,name” -->
       <keep-alive include="list,info,login">

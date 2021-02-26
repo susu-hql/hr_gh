@@ -1,33 +1,39 @@
 <template>
   <div id="infoBox">
-    详情
+    <div>详情 --- {{id}}</div>
+    <a @click="$router.push('/list')">点击返回</a>
+    <br />
+    <br />
+    <br />
+    <div>
+      <div>电话簿</div>
+      <Brother1></Brother1>
+      <br />
+      <Brother2></Brother2>
+    </div>
   </div>
 </template>
 
 <script>
-  // 兄弟组件之间的通信
-  import bus from '@utils/Bus.js'
-
+  import Brother1 from '@/components/brother/brother1.vue'
+  import Brother2 from '@/components/brother/brother2.vue'
   export default {
     name: 'infoBox',
     data() {
       return {
-
+        id: 0
       }
+    },
+    components: {
+      Brother1,
+      Brother2
     },
     created() {
       // 获取动态路由
+      this.id = this.$route.params.id
       console.log("当前文章id", this.$route.params.id)
     },
     methods: {
-      // 测试兄弟间的通信 实例，向电话簿里面添加联系人,List和Info;
-      addItem() {
-        var obj = {
-          name: '11',
-          tel: '1112333',
-        }
-        bus.$emit('add', obj) // 触发了一个add事件，并传递数据
-      },
       // 封装方法： 获取url中某个参数的值
       GetQueryValue() {
         let query = decodeURI(window.location.search.substring(1))

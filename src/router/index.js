@@ -78,8 +78,8 @@ const router = new Router({
 
 // 路由守卫
 router.beforeEach((to, from, next) => {
-  console.log('beforeEach-to', to)
-  console.log('beforeEach-from', from)
+  // console.log('beforeEach-to', to)
+  // console.log('beforeEach-from', from)
   // console.log('beforeEach-next', next)
   let token = sessionStorage.getItem("token")
   if (to.meta.requiresAuth && !token) {

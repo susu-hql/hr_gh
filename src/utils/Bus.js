@@ -1,5 +1,5 @@
-import Vue from 'vue'
-//  兄弟组件之间的通信
+import Vue from 'Vue'
+// 兄弟组件之间的通信
 
 var bus = new Vue();
 

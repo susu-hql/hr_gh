@@ -70,6 +70,9 @@
         default: 'hello',
         require: false // 父组件是否必须传递
       }
+    },
+    created() {
+      console.log(111)
     }
   }
 
